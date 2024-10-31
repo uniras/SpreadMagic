@@ -1,8 +1,8 @@
-# P5 Magic Command
+# SpreadSheet Magic Command
 
 ## 概要
 
-Jypyter(notebook/lab)・VSCodeまたはGoogle Colabでp5.js/q5.js/p5play.jsを使ったコードセルのPythonコードをPyScriptを使ってiframe(ブラウザ)上で実行するマジックコマンドです。
+Jypyter(notebook/lab)・VSCodeまたはGoogle Colabでjspresdsheetを使ったコードセルのPythonコードをPyScriptを使ってiframe(ブラウザ)上で実行するマジックコマンドです。
 
 ## 使い方
 
