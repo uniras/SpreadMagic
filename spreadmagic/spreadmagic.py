@@ -69,6 +69,9 @@ def parse_spread_args(line, cell):
 import js
 from pyscript import display, ffi
 
+spreadelement = js.document.createElement('div')
+spreadelement.id = "spreadsheet"
+js.document.body.insertBefore(spreadelement, js.document.body.firstChild)
 js.options = ffi.to_js(options)
 call_init = js.Function("if (typeof window.options.oninit === 'function') { window.options.oninit(window.spreadsheet); }")
 js.spreadsheet = js.jspreadsheet(js.document.getElementById('spreadsheet'), js.window.options);
