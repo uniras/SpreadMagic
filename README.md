@@ -83,3 +83,7 @@ options = {
 ```juypyter
 %%genss [width] [height] [background] [py_type] [py_conf] [js_src] [py_ver]
 ```
+
+## 参考
+
+[とほほのJspreadsheet入門](https://www.tohoho-web.com/ex/jspreadsheet.html)

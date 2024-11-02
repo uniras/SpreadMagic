@@ -40,15 +40,15 @@ def genss(line, cell):
     """
     セル内のPythonコードをPyScriptを用いてiframe内で実行するために生成したHTMLを表示するマジックコマンド
     """
-    args = parse_spread_args(line, cell, True)
+    args = parse_spread_args(line, cell)
     args["htmlmode"] = True
     pysmagic.run_pyscript(args)
 
 
-def parse_spread_args(line, cell, viewmode):
+def parse_spread_args(line, cell):
     # 引数のパース
     line_args = shlex.split(line)
-    args = []
+    args = {}
     args["width"] = int(line_args[0]) if len(line_args) > 0 else 500
     args["height"] = int(line_args[1]) if len(line_args) > 1 else 500
     args["background"] = line_args[2] if len(line_args) > 2 else "white"
