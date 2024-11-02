@@ -11,7 +11,7 @@ Jypyter(notebook/lab)・VSCodeまたはGoogle Colabでjspresdsheetを使った�
 コードセルに以下のコードを貼り付けて実行しマジックコマンドを登録してください。カーネルやランタイムを再起動する度に再実行する必要があります。
 
 ```python
-%pip install -q -U spreadmagic
+%pip install -q -U pysmagic spreadmagic
 from spreadmagic import register_smagic
 
 register_smagic()
@@ -65,7 +65,7 @@ options = {
 セル内のjspreadsheet.jsを使ったPythonコードをPyScriptを用いてiframe内で実行するマジックコマンド
 
 ```juypyter
-%%runss [width] [height] [background] [py_type] [py_conf] [js_src] [version]
+%%runss [width] [height] [background] [py_type] [py_conf] [js_src] [py_ver]
 ```
 
 - width: iframeの幅を指定します。デフォルトは500です。
@@ -74,12 +74,12 @@ options = {
 - py_type: 実行するPythonの種類。pyまたはmpyを指定します。mpyはMicroPyton、pyはCPython互換のPyodideで実行します。デフォルトはmpyです。グローバルモードのときはmpy固定です。
 - py_conf: PyScriptの設定を''で囲んだJSON形式で指定します。デフォルトは{}です。
 - js_src: 外部JavaScriptのURLを''で囲んだ文字列のJSON配列形式で指定します。デフォルトは[]です。
-- version: PyScriptのバージョンを指定します.
+- py_ver: PyScriptのバージョンを指定します.
 
 #### %%genss
 
 セル内のjspreadsheet.jsを使ったPythonコードをPythonコードからブラウザで実行可能な単一HTMLを生成するマジックコマンド。オプションはrunssと同じです。
 
 ```juypyter
-%%genss [width] [height] [background] [py_type] [py_conf] [js_src] [version]
+%%genss [width] [height] [background] [py_type] [py_conf] [js_src] [py_ver]
 ```
