@@ -45,6 +45,11 @@ def genss(line, cell):
     pysmagic.run_pyscript(args)
 
 
+def run_spreadscript(args):
+    args = set_spread_args(args)
+    pysmagic.run_pyscript(args)
+
+
 def parse_spread_args(line, cell):
     # 引数のパース
     line_args = shlex.split(line)
@@ -56,6 +61,14 @@ def parse_spread_args(line, cell):
     args["py_conf"] = line_args[4] if len(line_args) > 4 and line_args[4] != "{}" else None
     args["js_src"] = line_args[5] if len(line_args) > 5 and line_args[5] != "[]" else None
     args["py_ver"] = line_args[6] if len(line_args) > 6 and line_args[6].lower() != "none" else None
+    args["py_script"] = cell
+
+    return args
+
+
+def set_spread_args(args):
+    # pythonコードを取得
+    py_script = args.get("py_script", "")
 
     # 外部CSSの設定
     args["add_css"] = ["https://jsuites.net/v4/jsuites.css", "https://bossanova.uk/jspreadsheet/v4/jexcel.css"]
@@ -79,6 +92,6 @@ call_init()
 """
 
     # セル内のPythonコードとjspreadsheet実行スクリプトを結合
-    args["py_script"] = cell + addcode
+    args["py_script"] = py_script + addcode
 
     return args
