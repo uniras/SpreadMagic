@@ -31,6 +31,7 @@ def runss(line, cell):
         version: PyScriptのバージョンを指定します.
     """
     args = parse_spread_args(line, cell)
+    args = set_spread_args(args)
     args["htmlmode"] = False
     pysmagic.run_pyscript(args)
 
@@ -41,6 +42,7 @@ def genss(line, cell):
     セル内のPythonコードをPyScriptを用いてiframe内で実行するために生成したHTMLを表示するマジックコマンド
     """
     args = parse_spread_args(line, cell)
+    args = set_spread_args(args)
     args["htmlmode"] = True
     pysmagic.run_pyscript(args)
 
