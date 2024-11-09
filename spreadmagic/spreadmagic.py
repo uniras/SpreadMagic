@@ -60,7 +60,7 @@ def parse_spread_args(line, cell):
     args["py_type"] = line_args[3].lower() if len(line_args) > 3 else "mpy"
     args["py_conf"] = line_args[4] if len(line_args) > 4 and line_args[4] != "{}" else None
     args["js_src"] = line_args[5] if len(line_args) > 5 and line_args[5] != "[]" else None
-    args["py_ver"] = line_args[6] if len(line_args) > 6 and line_args[6].lower() != "none" else None
+    args["py_ver"] = line_args[6] if len(line_args) > 6 else "none"
     args["py_script"] = cell
 
     return args
