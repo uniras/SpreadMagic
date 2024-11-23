@@ -19,15 +19,16 @@ def runss(line, cell):
     セル内のPythonコードをPyScriptを用いてiframe内で実行するマジックコマンド
 
     Usage:
-        %%runss [width] [height] [background] [py_type] [py_conf] [js_src] [version]
+        %%runss [width] [height] [background] [py_type] [py_val] [py_conf] [js_src] [version]
 
     Args:
         width: iframeの幅を指定します。デフォルトは500です。
         height: iframeの高さを指定します。デフォルトは500です。
         background: iframeの背景色を指定します。デフォルトはwhiteです。
         py_type: 実行するPythonの種類。pyまたはmpyを指定します。pyはCPython互換のPyodide、mpyはMicroPytonで実行します。デフォルトはmpyです。
-        py_conf: PyScriptの設定を''で囲んだJSON形式で指定します。デフォルトは{}です。
-        js_src: 外部JavaScriptのURLを''で囲んだ文字列のJSON配列形式で指定します。デフォルトは[]です。
+        py_val: PyScriptの変数を''で囲んだJSON形式で指定します。デフォルトは'{}'です。
+        py_conf: PyScriptの設定を''で囲んだJSON形式で指定します。デフォルトは'{}'です。
+        js_src: 外部JavaScriptのURLを''で囲んだ文字列のJSON配列形式で指定します。デフォルトは'[]'です。
         version: PyScriptのバージョンを指定します.
     """
     args = parse_spread_args(line, cell)
@@ -60,9 +61,10 @@ def parse_spread_args(line, cell):
     args["height"] = line_args[1] if len(line_args) > 1 else "500"
     args["background"] = line_args[2] if len(line_args) > 2 else "white"
     args["py_type"] = line_args[3].lower() if len(line_args) > 3 else "mpy"
-    args["py_conf"] = line_args[4] if len(line_args) > 4 and line_args[4] != "{}" else None
-    args["js_src"] = line_args[5] if len(line_args) > 5 and line_args[5] != "[]" else None
-    args["py_ver"] = line_args[6] if len(line_args) > 6 else "none"
+    args["py_val"] = line_args[4] if len(line_args) > 4 and line_args[4] != "{}" else None
+    args["py_conf"] = line_args[5] if len(line_args) > 5 and line_args[5] != "{}" else None
+    args["js_src"] = line_args[6] if len(line_args) > 6 and line_args[6] != "[]" else None
+    args["py_ver"] = line_args[7] if len(line_args) > 7 else "none"
     args["py_script"] = cell
 
     return args
