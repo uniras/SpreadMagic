@@ -88,7 +88,8 @@ def parse_spread_args(line, cell):
         args['py_conf'] = line_args[5] if len(line_args) > 5 and line_args[5] != '{}' else def_args['py_conf']
         args['js_src'] = line_args[6] if len(line_args) > 6 and line_args[6] != '[]' else def_args['js_src']
         args['py_ver'] = line_args[7] if len(line_args) > 7 else def_args['py_ver']
-        args['py_script'] = cell
+
+    args['py_script'] = cell
 
     return args
 
